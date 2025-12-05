@@ -24,7 +24,7 @@ export class OpenWeatherMapService implements GeoCodingServiceInterface, Weather
         }
         this.currentController = new AbortController();
 
-        const url = `http://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(query)}&limit=5&appid=${this.apiKey}`;
+        const url = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(query)}&limit=5&appid=${this.apiKey}`;
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -38,7 +38,7 @@ export class OpenWeatherMapService implements GeoCodingServiceInterface, Weather
     }
 
     async searchLocationByCoords(lat: number, lon: number): Promise<CityEntity | null> {
-        const url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${this.apiKey}`;
+        const url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${this.apiKey}`;
         const response = await fetch(url);
 
         if (!response.ok) {
