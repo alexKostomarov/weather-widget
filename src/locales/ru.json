@@ -1,0 +1,30 @@
+{
+  "settings": "Настройки",
+  "add_location": "Добавить локацию",
+  "feels_like": "Ощущается как",
+  "humidity": "Влажность:",
+  "dew_point": "Точка росы:",
+  "visibility": "Видимость:",
+  "metric_system": "Система единиц",
+  "n/a": "Н/Д",
+  "units": {
+    "metric": {
+      "temperature": "°C",
+      "wind-speed": "м/с",
+      "pressure": "гПа",
+      "visibility": "м"
+    },
+    "imperial": {
+      "temperature": "°F",
+      "wind-speed": "миль/ч",
+      "pressure": "дюйм рт. ст.",
+      "visibility": "мили"
+    },
+    "standard": {
+      "temperature": "K",
+      "wind-speed": "м/с",
+      "pressure": "гПа",
+      "visibility": "м"
+    }
+  }
+}

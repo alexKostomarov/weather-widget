@@ -1,0 +1,30 @@
+{
+  "settings": "Settings",
+  "add_location": "Add location",
+  "feels_like": "Feels like",
+  "humidity": "Humidity:",
+  "dew_point": "Dew point:",
+  "visibility": "Visibility:",
+  "metric_system": "Metric system",
+  "n/a": "N/A",
+  "units": {
+    "metric": {
+      "temperature": "°C",
+      "wind-speed": "m/s",
+      "pressure": "hPa",
+      "visibility": "m"
+    },
+    "imperial": {
+      "temperature": "°F",
+      "wind-speed": "mph",
+      "pressure": "inHg",
+      "visibility": "mi"
+    },
+    "standard": {
+      "temperature": "°K",
+      "wind-speed": "m/s",
+      "pressure": "hPa",
+      "visibility": "m"
+    }
+  }
+}

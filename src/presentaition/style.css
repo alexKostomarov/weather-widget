@@ -1,0 +1,87 @@
+@layer reset, base, components, utilities;
+@import "./themes/reset.css";
+@import "tailwindcss";
+@import "./themes/light.css";
+@import "./themes/dark.css";
+
+
+.weather-widget-root {
+    box-sizing: border-box;
+
+    /* мобильная версия - на весь экран */
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 1rem;
+
+    background-color: var(--color-widget-bg);
+    color: var(--color-widget-text);
+}
+
+/* десктоп */
+@media (min-width: 768px) {
+    .weather-widget-root {
+        min-width: 280px;
+        max-width: 320px;
+        min-height: auto;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        padding: 0.75rem;
+    }
+}
+
+@utility bg-widget {
+    background-color: var(--color-widget-bg);
+}
+@utility text-widget {
+    color: var(--color-widget-text);
+}
+@utility bg-input {
+    background-color: var(--color-input-bg);
+}
+@utility btn-widget {
+    background-color: var(--color-widget-primary);
+    color: var(--color-widget-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+}
+
+@utility border-primary {
+    border-color: var(--color-widget-primary);
+}
+@utility font-base {
+    font-family: var(--font-family-base), serif;
+}
+
+@utility text-title-mobile {
+    font-size: var(--font-size-title-mobile);
+    line-height: var(--line-height-tight);
+    font-weight: 600;
+}
+@utility text-title-desktop {
+    font-size: var(--font-size-title-desktop);
+}
+
+
+@utility text-body-mobile {
+    font-size: var(--font-size-body-mobile);
+    line-height: var(--line-height-normal);
+}
+@utility text-body-desktop {
+    font-size: var(--font-size-body-desktop);
+}
+
+
+@utility text-caption-mobile {
+    font-size: var(--font-size-caption-mobile);
+    line-height: var(--line-height-tight);
+}
+@utility text-caption-desktop {
+    font-size: var(--font-size-caption-desktop);
+}
+
+@utility scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-input-bg) var(--color-widget-bg);
+}
+
+

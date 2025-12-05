@@ -1,0 +1,9 @@
+@media (prefers-color-scheme: dark) {
+    :root, :host {
+        --color-widget-bg: #1e1e1e;
+        --color-widget-text: #f0f0f0;
+        --color-widget-primary: #00bfff;
+        --color-widget-detail: #adb5bd;
+        --color-input-bg: #4c4c4c;
+    }
+}
