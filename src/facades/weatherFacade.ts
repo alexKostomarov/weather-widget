@@ -1,5 +1,4 @@
 import { rootComposer}  from "@/composition.root";
-import {CityEntity} from "@/domain/city/city.entity";
 import {WeatherDto} from "@/facades/dto/WeatherDto";
 import {WeatherMapper} from "@/facades/mappers/weather.mapper";
 

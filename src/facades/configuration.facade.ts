@@ -1,6 +1,5 @@
 import type {CityModel} from "@/presentaition/store/models/city.model";
 import { rootComposer}  from "@/composition.root";
-import { mapToCityEntity} from "@/domain/city/city.entity";
 import {ConfigurationDto} from "@/facades/dto/configuratiuon.dto";
 import {ConfigurationMapper} from "@/facades/mappers/configuration.mapper";
 import { CityMapper } from "@/facades/mappers/city.mapper";

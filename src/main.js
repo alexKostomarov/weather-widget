@@ -3,10 +3,7 @@ import App from './App.vue';
 import widgetStyles from './presentaition/style.css?inline';
 import { createPinia } from 'pinia';
 import {  initRootComposer} from "@/composition.root.ts";
-import en from '@/locales/en.json';
-import ru from '@/locales/ru.json';
-import {createI18n} from "vue-i18n";
-
+import {i18n} from "@/locales/i18n.ts";
 const getCurrentScriptPath = () => {
 
     const script = document.currentScript;
@@ -21,29 +18,23 @@ const getCurrentScriptPath = () => {
     return null;
 };
 
-const baseUrl = getCurrentScriptPath();//URL of the current script
 
 const el = document.querySelector('weather-widget, .weather-widget');
 
-let apiKey = null;
-
-if (el) {
-    apiKey = el.getAttribute('api-key');
-}
+if(!el) throw new Error('mount error');
 
 
-const i18n = createI18n({
-    locale: 'en',
-    fallbackLocale: 'en',
-    legacy: false,
-    messages: { en, ru },
-});
+if(!el.dataset.config) throw new Error('No config found');
 
+const data = JSON.parse( el.dataset.config);
+const config = {
+    ...data,
+    baseUrl:  getCurrentScriptPath(),
+    apiKey: data['api-key'],
+};
 
 //DI Container
-initRootComposer(apiKey, baseUrl);
-
-
+initRootComposer(config);
 
 class WeatherWidget extends HTMLElement {
     constructor() {

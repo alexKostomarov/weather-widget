@@ -1,8 +1,9 @@
 import {defineStore} from "pinia";
+import {computed, reactive, readonly} from "vue";
 import {CityModel} from "@/presentaition/store/models/city.model";
 import {ConfigurationDto} from "@/facades/dto/configuratiuon.dto";
-import {computed, reactive, readonly} from "vue";
 import {ConfigurationFacade} from "@/facades/configuration.facade";
+import {i18n, isLocale, Locale} from "@/locales/i18n";
 
 
 export const useConfiguration = defineStore('config', () => {
@@ -21,10 +22,16 @@ export const useConfiguration = defineStore('config', () => {
 
     //Actions
     async function loadConfiguration() {
-        const config = await configurator.loadConfiguration()
-        if (config) {
-            Object.assign(state, config);
+
+        const config = await configurator.loadConfiguration();
+        if (!config) return;
+
+        if(state.language !== config.language && isLocale(config.language)) {
+            i18n.global.locale.value = config.language as Locale;
         }
+
+        Object.assign(state, config);
+
     }
 
     async function addLocation(city: CityModel) {

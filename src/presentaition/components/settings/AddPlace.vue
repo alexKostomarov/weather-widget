@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <div class="text-caption-mobile md:text-caption-desktop font-semibold mb-2">
-      {{getMsg('add_location')}}
+      {{t('add_location')}}
     </div>
     <div class="w-full flex items-center justify-between relative">
       <input
@@ -40,11 +40,14 @@
 <script setup lang="ts">
 import {ref, watch} from "vue";
 import Enter from "@/presentaition/assets/enter.vue";
-import {getMsg} from "@/presentaition/utils/i18n.helper";
+
 import { refDebounced } from "@vueuse/core";
 import {useConfiguration} from "@/presentaition/store/use.configuration";
 import {CityModel} from "@/presentaition/store/models/city.model";
 import { onClickOutside } from "@vueuse/core";
+import {useTranslation} from "@/presentaition/utils/useTranslation";
+
+const {t} = useTranslation();
 
 const {searchLocation, addLocation} = useConfiguration();
 

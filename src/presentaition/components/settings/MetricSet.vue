@@ -1,8 +1,8 @@
 <template>
   <div>
 
-    <select v-model="system" class="border rounded mb-1">
-      <option v-for="(metric, id) in metrics" :value="metric" :key="id">{{metric}}</option>
+    <select v-model="system" class="border rounded-md mb-1 px-2 py-1">
+      <option v-for="(metric, id) in metrics" :value="metric" :key="id" class="bg-widget text-white rounded-md">{{metric}}</option>
     </select>
   </div>
 

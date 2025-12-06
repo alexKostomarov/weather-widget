@@ -10,7 +10,6 @@ import {WidgetConfiguration} from "@/application/configuration/widget.configurat
 import {WeatherCases} from "@/application/weather/weather.cases";
 import {ManageLocations} from "@/application/city/manage.locations";
 
-import type { I18n } from 'vue-i18n';
 import type {ConfigurationRepositoryInterface} from "@/domain/configuration/configuration.repository.interface";
 import {GeoLocationServiceInterface} from "@/domain/city/geo.location.service.interface";
 
@@ -34,13 +33,25 @@ interface RootComposer {
 export const rootComposer = {} as RootComposer;
 
 
-export function initRootComposer(apiKey: string, widgetBaseUrl: string) {
-    rootComposer.widgetBaseUrl = widgetBaseUrl;
+export function initRootComposer(config: Record<string, string>) {
+
+    rootComposer.widgetBaseUrl = config.baseUrl ?? '';
     rootComposer.widgetConfigurationRepository = new LocalStorageConfigurationRepository();
-    const owmService = new OpenWeatherMapService(apiKey);
-    rootComposer.weatherService = owmService;
-    rootComposer.geoCodingService = owmService;
     rootComposer.geoLocationService = new BrowserGeolocationService();
+
+    if (!config.provider) throw new Error('Provider is not defined');
+
+    switch (config.provider) {
+        case 'openweathermap.org':
+            if (!config.apiKey) throw new Error('apiKey required for OpenWeatherMap provider');
+            const owmService = new OpenWeatherMapService(config.apiKey);
+            rootComposer.weatherService = owmService;
+            rootComposer.geoCodingService = owmService;
+            break;
+        default: throw new Error(`Provider ${config.provider} is not supported`);
+    }
+
+
 
     //use cases
     rootComposer.cityUseCases = new ManageLocations(rootComposer.widgetConfigurationRepository);

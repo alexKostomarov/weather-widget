@@ -7,12 +7,7 @@
 
 .weather-widget-root {
     box-sizing: border-box;
-
-    /* мобильная версия - на весь экран */
-    min-width: 100vw;
-    min-height: 100vh;
     padding: 1rem;
-
     background-color: var(--color-widget-bg);
     color: var(--color-widget-text);
 }
@@ -20,9 +15,6 @@
 /* десктоп */
 @media (min-width: 768px) {
     .weather-widget-root {
-        min-width: 280px;
-        max-width: 320px;
-        min-height: auto;
         border-radius: 0.75rem;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         padding: 0.75rem;

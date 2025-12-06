@@ -1,7 +1,7 @@
 <template>
     <div>
       <div class="text-caption-mobile md:text-caption-desktop font-semibold mb-2">
-        {{getMsg('settings')}}
+        {{t('settings')}}
       </div>
         <place-list />
       <div class="mt-4">
@@ -22,14 +22,13 @@
 
 <script setup lang="ts">
 
-
-
-import {getMsg} from "@/presentaition/utils/i18n.helper";
 import AddPlace from "@/presentaition/components/settings/AddPlace.vue";
 import PlaceList from "@/presentaition/components/settings/PlaceList.vue";
 import MetricSet from "@/presentaition/components/settings/MetricSet.vue";
 import LanguageSet from "@/presentaition/components/settings/LanguageSet.vue";
+import {useTranslation} from "@/presentaition/utils/useTranslation";
 
+const {t} = useTranslation();
 
 </script>
 

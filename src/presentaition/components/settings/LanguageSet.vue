@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-end items-center">
-    <select v-model="lang" class="border rounded mb-1" id="language">
-      <option v-for="(lang, id) in languages" :value="lang" :key="id">{{lang}}</option>
+    <select v-model="lang" class="border rounded-md mb-1 px-2 py-1" id="language" >
+      <option v-for="(lang, id) in languages" :value="lang" :key="id" class="bg-widget text-white rounded-md">{{lang}}</option>
     </select>
   </div>
 

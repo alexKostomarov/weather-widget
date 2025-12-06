@@ -1,16 +1,9 @@
 import { defineStore } from 'pinia';
-import {computed, inject, reactive, readonly, watch} from 'vue';
-import type { WidgetConfigurationEntity } from '@/domain/configuration/widget.configuration.entity';
-import type { WeatherEntity } from '@/domain/weather/weather.entity';
-import type { CityEntity } from '@/domain/city/city.entity';
-import { ViewMode } from '@/presentaition/store/models/view.mode';
-import {Languages} from "@/domain/localisation/language";
-import type {Language} from "@/domain/localisation/language";
+import {computed, inject, reactive, readonly} from 'vue';
 import {WeatherFacade} from "@/facades/weatherFacade";
 import {WeatherDto} from "@/facades/dto/WeatherDto";
 
 
-// Интерфейс Состояния
 interface WeatherState {
     weatherData: Record<string, WeatherDto>;
     isLoading: boolean;

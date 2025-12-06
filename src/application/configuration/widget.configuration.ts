@@ -72,8 +72,8 @@ export class WidgetConfiguration {
 
         const newConfig: WidgetConfigurationEntity = {
             locations: [currentLocation],
-            units: DEFAULT_UNIT_SYSTEM as UnitSystem,
-            language: widgetLang as Language,
+            units: existingConfig?.units ?? DEFAULT_UNIT_SYSTEM as UnitSystem,
+            language: existingConfig?.language ?? widgetLang as Language,
             refreshInterval: DEFAULT_REFRESH_INTERVAL
         };
 
